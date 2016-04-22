@@ -35,6 +35,8 @@ public class HUDManager : MonoBehaviour
     {
         Debug.Log("EndDrag");
         Vector3 newPos = Vector3.zero;
+        newPos = Camera.main.ScreenToWorldPoint(aTool.transform.position);
+        newPos.z = 0;
         GameObject.Instantiate(Tool1Prefab, newPos, Quaternion.identity);
         aTool.transform.position = m_Tool1StartPos;
     }
