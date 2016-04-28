@@ -64,4 +64,9 @@ public class EditorTile : MonoBehaviour
                 break;
         }
     }
+
+    public TileState GetTileState()
+    {
+        return m_State;
+    }
 }
