@@ -199,6 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Tile: {fileID: 179898, guid: 03e16f99171e0d443b36485d3b977cd4, type: 2}
+  m_Background: {fileID: 179898, guid: 2bf5b5f11d6c4cf4584c147ee1c0054d, type: 2}
 --- !u!4 &1356054288
 Transform:
   m_ObjectHideFlags: 0
