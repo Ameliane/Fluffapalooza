@@ -4,20 +4,19 @@ using UnityEngine.EventSystems;
 
 public class HUDManager : MonoBehaviour
 {
-    public GameObject m_Tool1;
-    public GameObject Tool1Prefab;
-    private Vector3 m_Tool1StartPos;
+    public GameObject[] m_Tools;
+    public GameObject[] m_ToolPrefabs;
+    private Vector3[] m_ToolStartPos;
 
     // Use this for initialization
     void Start()
     {
-        m_Tool1StartPos = m_Tool1.transform.position;
-    }
+        m_ToolStartPos = new Vector3[m_Tools.Length];
 
-    // Update is called once per frame
-    void Update()
-    {
-
+        for (int i = 0; i < m_ToolStartPos.Length; i++)
+        {
+            m_ToolStartPos[i] = m_Tools[i].transform.position;
+        }
     }
 
     public void Drag(GameObject aTool)
@@ -33,12 +32,21 @@ public class HUDManager : MonoBehaviour
 
     public void EndDrag(GameObject aTool)
     {
+        int index = 0;
+        for (int i = 0; i < m_Tools.Length; i++)
+        {
+            if (m_Tools[i] == aTool)
+            {
+                index = i;
+            }
+        }
+
         Debug.Log("EndDrag");
         Vector3 newPos = Vector3.zero;
         newPos = Camera.main.ScreenToWorldPoint(aTool.transform.position);
         newPos.z = 0;
-        GameObject.Instantiate(Tool1Prefab, newPos, Quaternion.identity);
-        aTool.transform.position = m_Tool1StartPos;
+        GameObject.Instantiate(m_ToolPrefabs[index], newPos, Quaternion.identity);
+        aTool.transform.position = m_ToolStartPos[index];
     }
     
 }

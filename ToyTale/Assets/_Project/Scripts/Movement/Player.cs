@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     {
         if (!m_Alive) return;
 
+        m_Body.velocity = Vector2.Scale(m_Body.velocity, Vector2.up);
         transform.position += Vector3.right * 1.5f * Time.deltaTime;
 
         if(Input.GetKeyDown(KeyCode.Space))
