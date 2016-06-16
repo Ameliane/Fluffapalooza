@@ -14,7 +14,7 @@ public class LevelEditor : MonoBehaviour
         Clear
     }
 
-    const int SaveGameVersionNum = 1;
+    public const int SaveGameVersionNum = 1;
 
     [SerializeField]
     GameObject m_Tile;
