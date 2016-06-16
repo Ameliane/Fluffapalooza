@@ -4,6 +4,12 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
 {
+    [SerializeField]
+    float m_Speed = 1.5f;
+
+    [SerializeField]
+    float m_JumpForce = 5;
+
     Rigidbody2D m_Body;
 
     bool m_Alive = true;
@@ -14,16 +20,15 @@ public class Player : MonoBehaviour
         m_Body = GetComponent<Rigidbody2D>();
     }
     
-    void Update()
+    void FixedUpdate()
     {
         if (!m_Alive) return;
 
-        m_Body.velocity = Vector2.Scale(m_Body.velocity, Vector2.up);
-        transform.position += Vector3.right * 1.5f * Time.deltaTime;
-
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (m_Body.velocity.x < m_Speed)
         {
-            Jump();
+            Vector2 vel = m_Body.velocity;
+            vel.x = m_Speed;
+            m_Body.velocity = vel;
         }
     }
 
@@ -42,7 +47,13 @@ public class Player : MonoBehaviour
 
     void Jump()
     {
-        m_Body.AddForce(Vector2.up * 220);
+        if (m_Body.velocity.y < m_JumpForce)
+        {
+            Vector2 vel = m_Body.velocity;
+            vel.y = m_JumpForce;
+            m_Body.velocity = vel;
+        }
+
         m_OnGround = false;
     }
 

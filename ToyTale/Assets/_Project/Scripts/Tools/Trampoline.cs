@@ -15,8 +15,8 @@ public class Trampoline : MonoBehaviour
         if (fromTop && angle < 10 || angle > 170)
         {
             Vector2 vel = hit.rigidbody.velocity;
-            vel.y = m_JumpPower;
-            hit.rigidbody.velocity = vel;
+            vel.y = 0;
+            hit.rigidbody.velocity = vel + new Vector2(transform.up.x, transform.up.y) * m_JumpPower;
         }
     }
 }
