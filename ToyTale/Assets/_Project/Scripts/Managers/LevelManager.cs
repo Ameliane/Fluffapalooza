@@ -15,8 +15,11 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     GameObject m_BackgroundPrefab;
 
+    BoxCollider2D m_End;
+
     void Start()
     {
+        m_End = GetComponent<BoxCollider2D>();
         LoadLevel();
     }
     
@@ -63,9 +66,22 @@ public class LevelManager : MonoBehaviour
             Instantiate(m_BackgroundPrefab, new Vector3(levelData.Background[i].x, levelData.Background[i].y, levelData.Background[i].z), Quaternion.identity);
         }
 
+        //Load Finish
+        m_End.offset = new Vector2(levelData.EndPoint, m_End.offset.y);
+
         //Close the file stream
         loadStream.Close();
         Debug.Log("Load Successful!");
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            //Win
+            FindObjectOfType<FollowCam>().SetTarget(null);
+            other.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 100);
+        }
     }
 
     string GetSaveFilePath(string aFileName)
