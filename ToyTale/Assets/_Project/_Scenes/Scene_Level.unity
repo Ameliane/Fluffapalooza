@@ -98,7 +98,7 @@ GameObject:
   - 114: {fileID: 24027697}
   - 114: {fileID: 24027696}
   m_Layer: 0
-  m_Name: Image_Tool4
+  m_Name: Image_Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -277,7 +277,7 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 145, y: -180}
+  m_AnchoredPosition: {x: 145, y: -125}
   m_SizeDelta: {x: 96, y: 68}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &100373432
@@ -397,17 +397,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 221610212}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: daf25f23238d2184396d84bbadc88501, type: 3}
+  m_Script: {fileID: 11500000, guid: a981bc69a9f9ec14ab3d56fff7016ece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Tools:
-  - {fileID: 1911568499}
   - {fileID: 1452005982}
   - {fileID: 1466688950}
   - {fileID: 24027695}
   - {fileID: 1895490776}
   m_ToolPrefabs:
-  - {fileID: 162034, guid: 8af25d3b75ab90640a460ce0458f1468, type: 2}
   - {fileID: 162034, guid: 2c3fda16e4777e345a1b40fef6098c0d, type: 2}
   - {fileID: 162034, guid: 4a28f9ce4df1b664a8cb5a38fac7f6f2, type: 2}
   - {fileID: 163960, guid: dbd58975c3b8afc4a83b6110abbd49df, type: 2}
@@ -740,7 +738,7 @@ GameObject:
   - 114: {fileID: 1452005984}
   - 114: {fileID: 1452005983}
   m_Layer: 0
-  m_Name: Image_Tool2
+  m_Name: Image_Plank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -919,7 +917,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 145, y: 180}
+  m_AnchoredPosition: {x: 145, y: 375}
   m_SizeDelta: {x: 256, y: 26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1466688950
@@ -935,7 +933,7 @@ GameObject:
   - 114: {fileID: 1466688952}
   - 114: {fileID: 1466688951}
   m_Layer: 0
-  m_Name: Image_Tool3
+  m_Name: Image_Weight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1114,7 +1112,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 145, y: 0}
+  m_AnchoredPosition: {x: 145, y: 125}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1502155377
@@ -1180,7 +1178,7 @@ GameObject:
   - 114: {fileID: 1895490779}
   - 114: {fileID: 1895490778}
   m_Layer: 0
-  m_Name: Image_Tool5
+  m_Name: Image_Trampoline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1200,7 +1198,7 @@ RectTransform:
   m_RootOrder: 5
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 145, y: -365}
+  m_AnchoredPosition: {x: 145, y: -375}
   m_SizeDelta: {x: 128, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1895490778
@@ -1380,7 +1378,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1911568500
 MonoBehaviour:
   m_ObjectHideFlags: 0
