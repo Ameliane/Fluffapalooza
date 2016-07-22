@@ -14,7 +14,7 @@ public class LevelEditor : MonoBehaviour
         Clear
     }
 
-    public const int SaveGameVersionNum = 1;
+    public const int SaveGameVersionNum = 2;
 
     [SerializeField]
     GameObject m_Tile;
@@ -30,6 +30,7 @@ public class LevelEditor : MonoBehaviour
     Vector2 m_PreviousTouchPosition = Vector2.zero;
     float m_ScrollSpeed = 0.02f;
     string m_FileName = "Level";
+    int m_World = 1;
     int m_Width = 0;
     int m_Height = 0;
     int m_EndPoint = 12;
@@ -280,6 +281,7 @@ public class LevelEditor : MonoBehaviour
 
         //Populate save data
         SaveData levelData = new SaveData();
+        levelData.World = m_World;
         levelData.Width = m_Width;
         levelData.Height = m_Height;
         levelData.EndPoint = m_EndPoint;
@@ -344,6 +346,7 @@ public class LevelEditor : MonoBehaviour
 
         //Load save data
         SaveData levelData = (SaveData)loadFormatter.Deserialize(loadStream);
+        m_World = levelData.World;
         ResizeLevel(levelData.Width, levelData.Height);
         MoveEndpoint(levelData.EndPoint);
 
@@ -440,6 +443,7 @@ public class Position3
 [Serializable]
 public class SaveData
 {
+    public int World;
     public int Width;
     public int Height;
     public int EndPoint;
