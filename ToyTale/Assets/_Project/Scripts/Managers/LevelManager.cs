@@ -56,7 +56,8 @@ public class LevelManager : MonoBehaviour
             {
                 int x = i % levelData.Width;
                 int y = i / levelData.Width;
-                Instantiate(m_TilePrefab, new Vector3(x, y, 0), Quaternion.identity);
+                GameObject tile = Instantiate(m_TilePrefab, new Vector3(x, y, 0), Quaternion.identity) as GameObject;
+                tile.GetComponent<SpriteManager>().SetSprite(levelData.World);
             }
         }
 
