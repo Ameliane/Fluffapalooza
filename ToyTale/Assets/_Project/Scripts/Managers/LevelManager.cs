@@ -7,6 +7,8 @@ using System;
 
 public class LevelManager : MonoBehaviour
 {
+    public static LevelManager i = null;
+
     public string m_FileName = "test";
 
     [SerializeField]
@@ -17,8 +19,15 @@ public class LevelManager : MonoBehaviour
 
     BoxCollider2D m_End;
 
-    void Start()
+    int m_World = 0;
+
+    void Awake()
     {
+        if (i == null)
+            i = this;
+        else
+            Destroy(gameObject);
+
         m_End = GetComponent<BoxCollider2D>();
         LoadLevel();
     }
@@ -48,6 +57,7 @@ public class LevelManager : MonoBehaviour
 
         //Load save data
         SaveData levelData = (SaveData)loadFormatter.Deserialize(loadStream);
+        m_World = levelData.World;
 
         //Load Tiles
         for (int i = 0; i < levelData.Tiles.Count; i++)
@@ -56,8 +66,7 @@ public class LevelManager : MonoBehaviour
             {
                 int x = i % levelData.Width;
                 int y = i / levelData.Width;
-                GameObject tile = Instantiate(m_TilePrefab, new Vector3(x, y, 0), Quaternion.identity) as GameObject;
-                tile.GetComponent<SpriteManager>().SetSprite(levelData.World);
+                Instantiate(m_TilePrefab, new Vector3(x, y, 0), Quaternion.identity);
             }
         }
 
@@ -89,4 +98,6 @@ public class LevelManager : MonoBehaviour
     {
         return Application.persistentDataPath + "/" + aFileName;
     }
+
+    public int World { get { return m_World; } }
 }

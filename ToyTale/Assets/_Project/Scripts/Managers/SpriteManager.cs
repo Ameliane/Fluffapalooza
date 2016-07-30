@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class SpriteManager : MonoBehaviour
@@ -7,21 +8,22 @@ public class SpriteManager : MonoBehaviour
     Sprite[] m_Sprites;
 
     SpriteRenderer m_Rend;
+    Image m_Image;
 
-    void Awake()
+    void Start()
     {
         m_Rend = GetComponent<SpriteRenderer>();
-    }
+        m_Image = GetComponent<Image>();
 
-    public void SetSprite(int aWorld)
-    {
-        if (m_Sprites.Length < aWorld)
+        if (m_Sprites.Length < LevelManager.i.World)
         {
             Debug.LogError("Not enough sprites", gameObject);
-            m_Rend.sprite = m_Sprites[0];
+            if (m_Rend != null) m_Rend.sprite = m_Sprites[0];
+            if (m_Image != null) m_Image.sprite = m_Sprites[0];
             return;
         }
 
-        m_Rend.sprite = m_Sprites[aWorld - 1];
+        if (m_Rend != null) m_Rend.sprite = m_Sprites[LevelManager.i.World - 1];
+        if (m_Image != null) m_Image.sprite = m_Sprites[LevelManager.i.World - 1];
     }
 }

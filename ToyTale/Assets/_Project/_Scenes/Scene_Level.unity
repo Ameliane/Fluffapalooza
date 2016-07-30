@@ -403,16 +403,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a981bc69a9f9ec14ab3d56fff7016ece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Tools:
-  - {fileID: 1452005982}
-  - {fileID: 1466688950}
-  - {fileID: 24027695}
-  - {fileID: 1895490776}
-  m_ToolPrefabs:
-  - {fileID: 162034, guid: 2c3fda16e4777e345a1b40fef6098c0d, type: 2}
-  - {fileID: 162034, guid: 4a28f9ce4df1b664a8cb5a38fac7f6f2, type: 2}
-  - {fileID: 163960, guid: dbd58975c3b8afc4a83b6110abbd49df, type: 2}
-  - {fileID: 130038, guid: 0b993bfbc048deb4c8f13b6af7aa507f, type: 2}
+  m_Tools: []
+  m_ToolPrefabs: []
 --- !u!114 &221610215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -744,6 +736,7 @@ GameObject:
   - 114: {fileID: 1452005985}
   - 114: {fileID: 1452005984}
   - 114: {fileID: 1452005983}
+  - 114: {fileID: 1452005988}
   m_Layer: 0
   m_Name: Image_Plank
   m_TagString: Untagged
@@ -767,8 +760,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 221610214}
-          m_MethodName: Drag
+        - m_Target: {fileID: 221610212}
+          m_MethodName: 
           m_Mode: 2
           m_Arguments:
             m_ObjectArgument: {fileID: 1452005982}
@@ -928,6 +921,19 @@ RectTransform:
   m_AnchoredPosition: {x: 145, y: 375}
   m_SizeDelta: {x: 256, y: 26}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1452005988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1452005982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5962d4418f77c6f4783f9ffc1fe31773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Sprites:
+  - {fileID: 21300000, guid: 8b0181bc37ed5614191b52225ca79079, type: 3}
 --- !u!1 &1466688950
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,6 +946,7 @@ GameObject:
   - 114: {fileID: 1466688953}
   - 114: {fileID: 1466688952}
   - 114: {fileID: 1466688951}
+  - 114: {fileID: 1466688956}
   m_Layer: 0
   m_Name: Image_Weight
   m_TagString: Untagged
@@ -1124,6 +1131,19 @@ RectTransform:
   m_AnchoredPosition: {x: 145, y: 125}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1466688956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1466688950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5962d4418f77c6f4783f9ffc1fe31773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Sprites:
+  - {fileID: 21300000, guid: 96f68eafc1ebef940afc21e93369d6e4, type: 3}
 --- !u!1001 &1502155377
 Prefab:
   m_ObjectHideFlags: 0
