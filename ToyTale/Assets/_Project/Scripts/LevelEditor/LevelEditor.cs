@@ -144,7 +144,7 @@ public class LevelEditor : MonoBehaviour
         }
     }
 
-    void SetEditMode(EditMode aMode)
+    public void SetEditMode(EditMode aMode)
     {
         m_Mode = aMode;
     }
@@ -273,7 +273,7 @@ public class LevelEditor : MonoBehaviour
         return m_Mode;
     }
 
-    void SaveLevel(string aFileName)
+    public void SaveLevel(string aFileName)
     {
         string savePath = GetSaveFilePath(aFileName);
 
@@ -318,6 +318,11 @@ public class LevelEditor : MonoBehaviour
         file.Close();
 
         Debug.Log("Save Successful!");
+    }
+
+    public void StartLoadLevel(string aFileName)
+    {
+        StartCoroutine(LoadLevel(aFileName));
     }
 
     IEnumerator LoadLevel(string aFileName)
@@ -420,15 +425,15 @@ public class LevelEditor : MonoBehaviour
         GUI.Label(new Rect(Screen.width - 330, Screen.height - 40, 120, 30), m_EndPoint.ToString());
 
         //Mode
-        if (GUI.Button(new Rect(10, 10, 60, 30), "Move")) SetEditMode(EditMode.Move);
-        if (GUI.Button(new Rect(10, 50, 60, 30), "Place")) SetEditMode(EditMode.Place);
-        if (GUI.Button(new Rect(10, 90, 60, 30), "Clear")) SetEditMode(EditMode.Clear);
-        if (GUI.Button(new Rect(10, 130, 60, 30), "Back")) SetBackground(!m_WorkingBackground);
+        //if (GUI.Button(new Rect(10, 10, 60, 30), "Move")) SetEditMode(EditMode.Move);
+        //if (GUI.Button(new Rect(10, 50, 60, 30), "Place")) SetEditMode(EditMode.Place);
+        //if (GUI.Button(new Rect(10, 90, 60, 30), "Clear")) SetEditMode(EditMode.Clear);
+        //if (GUI.Button(new Rect(10, 130, 60, 30), "Back")) SetBackground(!m_WorkingBackground);
 
         //Save and Load
-        m_FileName = GUI.TextField(new Rect(10, Screen.height - 110, 120, 20), m_FileName);
-        if (GUI.Button(new Rect(10, Screen.height - 80, 120, 30), "Save")) SaveLevel(m_FileName);
-        if (GUI.Button(new Rect(10, Screen.height - 40, 120, 30), "Load")) StartCoroutine(LoadLevel(m_FileName)); ;
+        //m_FileName = GUI.TextField(new Rect(10, Screen.height - 110, 120, 20), m_FileName);
+        //if (GUI.Button(new Rect(10, Screen.height - 80, 120, 30), "Save")) SaveLevel(m_FileName);
+        //if (GUI.Button(new Rect(10, Screen.height - 40, 120, 30), "Load")) StartCoroutine(LoadLevel(m_FileName)); ;
     }
 }
 
